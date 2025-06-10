@@ -1,0 +1,22 @@
+---
+import Layout from "~/layouts/MainLayout.astro";
+const { cookies, redirect } = Astro;
+
+const access = cookies.get("sb-access-token");
+const refresh = cookies.get("sb-refresh-token");
+
+if (access && refresh) {
+  return redirect("/contacto");
+}
+---
+
+<Layout>
+  <h1 class="text-xl font-bold mb-4">Iniciar sesión</h1>
+  <form action="/api/auth/login" method="POST" class="space-y-4">
+    <input type="email" name="email" placeholder="Correo electrónico" required class="border p-2 rounded w-full" />
+    <input type="password" name="password" placeholder="Contraseña" required class="border p-2 rounded w-full" />
+    <input type="hidden" name="redirectTo" value="/contacto" />
+    <button type="submit" class="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700">Entrar</button>
+  </form>
+  <p class="mt-4 text-sm">¿No tienes cuenta? <a href="/register" class="text-teal-600 underline">Regístrate aquí</a></p>
+</Layout>

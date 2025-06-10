@@ -1,0 +1,16 @@
+[
+  {
+    "titulo": "Limpieza + Fluoración",
+    "descripcion": "Previene caries y mejora tu salud bucal.",
+    "precioOriginal": "$39.990",
+    "precioOferta": "$29.990",
+    "imagen": "images/limpieza-dental.jpg"
+  },
+  {
+    "titulo": "Ortodoncia inicial",
+    "descripcion": "Evaluación + radiografía panorámica incluida.",
+    "precioOriginal": "$59.990",
+    "precioOferta": "$39.990",
+    "imagen": "images/ortodoncia-dental.jpg"
+  }
+]

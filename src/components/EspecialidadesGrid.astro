@@ -1,0 +1,21 @@
+---
+import especialidades from '../data/especialidades.json';
+---
+
+<section id="especialidades" class="bg-white py-12 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center text-primary mb-8">
+      Nuestras Especialidades
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {Array.isArray(especialidades) && especialidades.map((esp, idx) => (
+        <div class="border rounded-lg p-6 shadow-sm hover:shadow-md transition bg-fondo">
+          <div class="text-4xl mb-3">{esp?.icono ?? '🦷'}</div>
+          <h3 class="text-lg font-semibold text-secondary mb-2">{esp?.nombre ?? 'Especialidad'}</h3>
+          <p class="text-sm text-text-base">{esp?.descripcion ?? 'Descripción no disponible.'}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
