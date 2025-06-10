@@ -2,32 +2,37 @@
   {
     "nombre": "Ortodoncia",
     "descripcion": "Alineación dental para una sonrisa armónica.",
-    "icono": "🦷"
+    "icono": "🦷",
+    "imagen": "orto.jpg"
   },
   {
     "nombre": "Implantes",
     "descripcion": "Reemplazo de piezas dentales con implantes fijos.",
-    "icono": "🛠️"
+    "icono": "🛠️",
+    "imagen": "implantes.webp"
   },
   {
     "nombre": "Endodoncia",
     "descripcion": "Tratamiento de conducto sin dolor.",
-    "icono": "🧪"
+    "icono": "🧪",
+    "imagen": "endodoncia.jpg"
   },
   {
     "nombre": "Odontopediatría",
     "descripcion": "Cuidado dental especializado para niños.",
-    "icono": "👶"
+    "icono": "👶",
+    "imagen": "odontopediatria.webp"
   },
   {
     "nombre": "Limpieza dental",
     "descripcion": "Eliminación de sarro y manchas superficiales.",
-    "icono": "🪥"
+    "icono": "🪥",
+    "imagen": "limpieza-dental.jpg"
   },
   {
     "nombre": "Estética dental",
     "descripcion": "Blanqueamiento y diseño de sonrisa.",
-    "icono": "✨"
+    "icono": "✨",
+    "imagen": "estetica.jpg"
   }
-  
 ]
