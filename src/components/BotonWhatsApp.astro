@@ -4,7 +4,7 @@
 ---
 
 <!-- Botón WhatsApp Desktop -->
-<div class="fixed bottom-6 right-6 z-50 flex items-end gap-3 group md:flex">
+<div class="fixed bottom-6 right-6 z-50 items-end gap-3 group hidden md:flex">
   
   <!-- Globo de texto animado - Solo aparece con hover -->
   <div class="bg-white rounded-2xl shadow-xl border border-green-200 p-4 max-w-xs animate-bounce-gentle opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -29,10 +29,9 @@
       href="https://wa.me/56938980598?text=Hola, quiero agendar una evaluación en Clínica Linda Sonrisa"
       target="_blank"
       rel="noopener noreferrer"
-      class="bg-green-500 hover:bg-green-600 active:bg-green-700 text-white rounded-full shadow-lg hover:shadow-2xl w-16 h-16 flex items-center justify-center transition-all duration-300 transform hover:scale-110 animate-pulse-ring z-10 relative"
+      class="bg-green-500 hover:bg-green-600 active:bg-green-700 text-white rounded-full shadow-lg hover:shadow-2xl w-16 h-16 flex items-center justify-center transition-all duration-300 transform hover:scale-110 animate-pulse-ring"
       aria-label="Contactar por WhatsApp para agendar cita"
       title="¡Agenda tu cita por WhatsApp!"
-      onclick="window.open(this.href, '_blank'); return false;"
     >
       <svg 
         class="w-8 h-8 fill-current group-hover:rotate-12 transition-transform duration-300" 
@@ -53,38 +52,39 @@
   </div>
 </div>
 
-<!-- Botón WhatsApp Móvil -->
-<div class="fixed bottom-4 right-4 z-50 md:hidden">
+<!-- Botón WhatsApp Móvil Optimizado -->
+<div class="fixed bottom-6 right-6 z-50 block md:hidden">
   <div class="relative">
-    <!-- Tooltip para móvil -->
-    <div class="absolute -top-12 -left-12 bg-green-600 text-white rounded-lg px-2 py-1 text-xs font-semibold shadow-lg animate-bounce-gentle pointer-events-none">
-      📱 Agenda aquí
-      <!-- Flecha hacia abajo -->
-      <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full w-0 h-0 border-l-2 border-l-transparent border-r-2 border-r-transparent border-t-3 border-t-green-600"></div>
-    </div>
     
-    <!-- Botón principal móvil -->
+    <!-- Botón principal móvil más pequeño -->
     <a
-      href="https://wa.me/56938980598?text=Hola,%20quiero%20agendar%20una%20evaluaci%C3%B3n%20en%20Cl%C3%ADnica%20Linda%20Sonrisa"
+      href="https://wa.me/56938980598?text=Hola, quiero agendar una evaluación en Clínica Linda Sonrisa"
       target="_blank"
       rel="noopener noreferrer"
-      class="bg-green-500 active:bg-green-700 text-white rounded-full shadow-2xl w-16 h-16 flex items-center justify-center transition-all duration-200 transform active:scale-95 z-10 relative"
+      class="bg-green-500 hover:bg-green-600 active:bg-green-700 text-white rounded-full shadow-2xl w-16 h-16 flex items-center justify-center transition-all duration-300 transform active:scale-95 pulse-green"
       aria-label="Agendar cita por WhatsApp"
       title="Agenda tu cita por WhatsApp"
-      onclick="this.click(); return true;"
     >
-      <!-- Ícono WhatsApp -->
-      <svg class="w-9 h-9 fill-current" viewBox="0 0 24 24">
+      <!-- Ícono WhatsApp ajustado -->
+      <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
       </svg>
     </a>
     
-    <!-- Anillo de pulso para móvil -->
-    <div class="absolute inset-0 bg-green-400 rounded-full animate-pulse opacity-30 pointer-events-none"></div>
+    <!-- Círculos de pulso optimizados -->
+    <div class="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-20 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-green-400 rounded-full animate-pulse opacity-10 pointer-events-none" style="animation-delay: 0.5s;"></div>
     
-    <!-- Badge de notificación móvil -->
-    <div class="absolute -top-2 -right-2 bg-red-500 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center font-bold animate-bounce border-2 border-white pointer-events-none">
+    <!-- Badge de notificación móvil optimizado -->
+    <div class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold animate-bounce border-2 border-white shadow-lg pointer-events-none">
       !
+    </div>
+    
+    <!-- Texto flotante más compacto -->
+    <div class="absolute -top-14 -left-6 bg-green-600 text-white rounded-lg px-2 py-1 text-xs font-semibold shadow-xl animate-bounce-gentle pointer-events-none whitespace-nowrap">
+      📱 Toca aquí
+      <!-- Flecha hacia abajo más pequeña -->
+      <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full w-0 h-0 border-l-3 border-l-transparent border-r-3 border-r-transparent border-t-4 border-t-green-600"></div>
     </div>
   </div>
 </div>
@@ -112,32 +112,66 @@
     }
   }
   
+  @keyframes pulse-green {
+    0% {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 15px rgba(34, 197, 94, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+  }
+  
   .animate-bounce-gentle {
-    animation: bounce-gentle 2.5s infinite;
+    animation: bounce-gentle 3s infinite;
   }
   
   .animate-pulse-ring {
     animation: pulse-ring 2s infinite;
   }
   
-  /* Asegurar funcionalidad táctil */
+  .pulse-green {
+    animation: pulse-green 2.5s infinite;
+  }
+  
+  /* Optimización móvil específica */
   @media (max-width: 768px) {
-    a {
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
+    /* Asegurar que el botón sea visible y táctil */
+    .fixed {
+      z-index: 9999 !important;
     }
     
-    /* Asegurar tamaño táctil mínimo */
+    /* Mejorar área táctil */
     .fixed a {
-      min-width: 64px;
-      min-height: 64px;
+      min-width: 64px !important;
+      min-height: 64px !important;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(34, 197, 94, 0.3);
+    }
+    
+    /* Asegurar que las animaciones no interfieran */
+    .pointer-events-none {
+      pointer-events: none !important;
+    }
+    
+    /* Mejorar contraste en móvil */
+    .bg-green-500 {
+      background-color: #22c55e !important;
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3) !important;
+    }
+    
+    /* Animación más suave en móvil */
+    .animate-bounce-gentle {
+      animation-duration: 2.5s;
     }
   }
   
-  /* Mejorar interactividad */
+  /* Foco mejorado para accesibilidad */
   a:focus {
-    outline: 2px solid #22c55e;
-    outline-offset: 2px;
+    outline: 3px solid #fbbf24;
+    outline-offset: 3px;
   }
 </style>
 
