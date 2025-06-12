@@ -3,14 +3,18 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
+
 ---
 
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="Especialistas en salud dental. Agenda tu atención con nosotros." />
+	  <meta name="description" content="Especialistas en salud dental. Agenda tu atención con nosotros." />
     <title>Clínica Linda Sonrisa</title>
+    <Analytics />
+
   </head>
   <body class="bg-background font-sans text-text-base">
     <Header />
