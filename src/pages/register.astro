@@ -13,14 +13,13 @@ if (Astro.request.method === "POST") {
   const email = formData.get("email")?.toString();
   const telefono = formData.get("telefono")?.toString();
   const rut = formData.get("rut")?.toString();
-  const dv = formData.get("dv")?.toString(); // Dígito verificador separado
   const fechaNacimiento = formData.get("fechaNacimiento")?.toString();
   const password = formData.get("password")?.toString();
   const confirmPassword = formData.get("confirmPassword")?.toString();
   const terminos = formData.get("terminos")?.toString();
 
   // Validación básica de simulación
-  if (!nombre || !apellidoPaterno || !email || !telefono || !rut || !dv || !fechaNacimiento || !password || !confirmPassword || !terminos) {
+  if (!nombre || !apellidoPaterno || !email || !telefono || !rut || !fechaNacimiento || !password || !confirmPassword || !terminos) {
     message = 'Por favor completa todos los campos obligatorios.';
     messageType = 'error';
   } else if (password !== confirmPassword) {
@@ -54,7 +53,6 @@ if (Astro.request.method === "POST") {
         email,
         telefono,
         rut,
-        dv,
         fechaNacimiento
       });
       return Astro.redirect("/contacto");
@@ -256,17 +254,15 @@ if (Astro.request.method === "POST") {
                   type="text" 
                   id="rut"
                   name="rut" 
-                  placeholder="12.345.678" 
+                  placeholder="12.345.678-9" 
                   required 
-                  class="w-full pl-12 pr-16 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 group-hover:border-teal-300 text-lg"
+                  maxlength="12"
+                  class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 group-hover:border-teal-300 text-lg"
                 />
-                <!-- Indicador del dígito verificador -->
-                <div class="absolute inset-y-0 right-0 pr-4 flex items-center">
-                  <span id="digitoVerificador" class="text-lg font-bold text-teal-600"></span>
-                </div>
               </div>
-              <!-- Campo oculto para el dígito verificador -->
-              <input type="hidden" id="dv" name="dv" value="" />
+              <p class="text-xs text-gray-500 mt-2">
+                Formato: 12.345.678-9 o 12.345.678-K
+              </p>
             </div>
           </div>
 
@@ -419,7 +415,7 @@ if (Astro.request.method === "POST") {
           <div>
             <h3 class="font-semibold text-blue-800 mb-1">Modo Demo</h3>
             <p class="text-sm text-blue-700">
-              Prueba con RUT: <strong>19009971</strong> - Se calculará automáticamente el dígito verificador: <strong>9</strong>
+              Ejemplos de RUT: <strong>12.345.678-9</strong> o <strong>12.345.678-K</strong>
             </p>
           </div>
         </div>
@@ -435,52 +431,71 @@ if (Astro.request.method === "POST") {
     window.location.href = '/contacto';
   }
 
-  // Función para calcular el dígito verificador del RUT chileno
-  function calcularDigitoVerificador(rut: string): string {
-    const rutLimpio = rut.replace(/[^\d]/g, '');
+  // Función para formatear RUT chileno
+  function formatearRUT(value: string): string {
+    // Remover todo excepto números y K
+    let clean = value.replace(/[^0-9kK]/g, '').toUpperCase();
     
-    if (rutLimpio.length < 7 || rutLimpio.length > 8) {
-      return '';
-    }
-
-    const rutInvertido = rutLimpio.split('').reverse().join('');
-    const serie = [2, 3, 4, 5, 6, 7];
-    let suma = 0;
-    
-    for (let i = 0; i < rutInvertido.length; i++) {
-      const digito = parseInt(rutInvertido[i]);
-      const multiplicador = serie[i % serie.length];
-      suma += digito * multiplicador;
+    // Limitar longitud máxima
+    if (clean.length > 9) {
+      clean = clean.slice(0, 9);
     }
     
-    const resto = suma % 11;
+    if (clean.length === 0) return '';
     
-    switch (resto) {
-      case 1: return '9';
-      case 2: return '8';
-      case 3: return '7';
-      case 4: return '6';
-      case 5: return '5';
-      case 6: return '4';
-      case 7: return '3';
-      case 8: return '2';
-      case 9: return '1';
-      case 10: return 'K';
-      case 0: return '0';
-      default: return '';
+    // Si termina en K o un dígito
+    const hasVerifier = clean.length > 7;
+    
+    if (hasVerifier) {
+      // Separar número y dígito verificador
+      const numero = clean.slice(0, -1);
+      const verificador = clean.slice(-1);
+      
+      // Formatear número con puntos
+      let numeroFormateado = '';
+      if (numero.length > 6) {
+        numeroFormateado = numero.slice(0, -6) + '.' + numero.slice(-6, -3) + '.' + numero.slice(-3);
+      } else if (numero.length > 3) {
+        numeroFormateado = numero.slice(0, -3) + '.' + numero.slice(-3);
+      } else {
+        numeroFormateado = numero;
+      }
+      
+      return numeroFormateado + '-' + verificador;
+    } else {
+      // Solo formatear número sin verificador
+      if (clean.length > 6) {
+        return clean.slice(0, -6) + '.' + clean.slice(-6, -3) + '.' + clean.slice(-3);
+      } else if (clean.length > 3) {
+        return clean.slice(0, -3) + '.' + clean.slice(-3);
+      } else {
+        return clean;
+      }
     }
   }
 
-  // Función para formatear RUT con puntos
-  function formatearRUT(rut: string): string {
-    const numeros = rut.replace(/[^\d]/g, '');
+  // Función para validar RUT chileno básico
+  function validarRUT(rut: string): boolean {
+    const clean = rut.replace(/[^0-9kK]/g, '').toUpperCase();
     
-    if (numeros.length <= 1) return numeros;
-    if (numeros.length <= 4) return numeros;
-    if (numeros.length <= 7) {
-      return numeros.slice(0, -3) + '.' + numeros.slice(-3);
+    // Debe tener entre 8 y 9 caracteres
+    if (clean.length < 8 || clean.length > 9) {
+      return false;
     }
-    return numeros.slice(0, -6) + '.' + numeros.slice(-6, -3) + '.' + numeros.slice(-3);
+    
+    // El último carácter debe ser un dígito o K
+    const lastChar = clean.slice(-1);
+    if (!/[0-9K]/.test(lastChar)) {
+      return false;
+    }
+    
+    // Los demás deben ser números
+    const numbers = clean.slice(0, -1);
+    if (!/^\d+$/.test(numbers)) {
+      return false;
+    }
+    
+    return true;
   }
 
   // Función para validar fortaleza de contraseña
@@ -534,8 +549,6 @@ if (Astro.request.method === "POST") {
 
   document.addEventListener('DOMContentLoaded', function() {
     const rutInput = document.getElementById('rut') as HTMLInputElement;
-    const digitoVerificadorSpan = document.getElementById('digitoVerificador') as HTMLSpanElement;
-    const dvInput = document.getElementById('dv') as HTMLInputElement;
     const fechaNacimientoInput = document.getElementById('fechaNacimiento') as HTMLInputElement;
 
     // Validación de contraseñas
@@ -621,48 +634,38 @@ if (Astro.request.method === "POST") {
       }
     });
 
-    // Manejo del RUT con auto-cálculo del dígito verificador
+    // Manejo del RUT con formateo automático
     rutInput?.addEventListener('input', function(e) {
       const target = e.target as HTMLInputElement;
-      let value = target.value;
+      const cursorPosition = target.selectionStart;
+      const value = target.value;
       
-      // Solo permitir números
-      value = value.replace(/[^\d]/g, '');
-      
-      // Limitar a 8 dígitos máximo
-      if (value.length > 8) {
-        value = value.slice(0, 8);
-      }
-      
-      // Formatear con puntos
+      // Formatear el RUT
       const rutFormateado = formatearRUT(value);
       target.value = rutFormateado;
       
-      // Calcular y mostrar dígito verificador
-      if (value.length >= 7) {
-        const digitoVerificador = calcularDigitoVerificador(value);
-        if (digitoVerificador) {
-          // Mostrar dígito verificador en la UI
-          digitoVerificadorSpan.textContent = `-${digitoVerificador}`;
-          digitoVerificadorSpan.classList.add('text-teal-600');
-          
-          // Guardar dígito verificador en campo oculto
-          dvInput.value = digitoVerificador;
-          
-          // Validación visual
+      // Validar RUT
+      if (rutFormateado.length > 0) {
+        const esValido = validarRUT(rutFormateado);
+        
+        if (esValido) {
           target.classList.remove('border-red-300');
           target.classList.add('border-green-300');
+          target.setCustomValidity('');
+        } else {
+          target.classList.remove('border-green-300');
+          target.classList.add('border-red-300');
+          target.setCustomValidity('RUT inválido');
         }
       } else {
-        // Limpiar dígito verificador
-        digitoVerificadorSpan.textContent = '';
-        dvInput.value = '';
         target.classList.remove('border-green-300', 'border-red-300');
+        target.setCustomValidity('');
       }
       
-      // Validación de longitud mínima
-      if (value.length > 0 && value.length < 7) {
-        target.classList.add('border-red-300');
+      // Restaurar posición del cursor (aproximadamente)
+      if (cursorPosition !== null) {
+        const newPosition = Math.min(cursorPosition + (rutFormateado.length - value.length), rutFormateado.length);
+        target.setSelectionRange(newPosition, newPosition);
       }
     });
 
@@ -741,12 +744,5 @@ if (Astro.request.method === "POST") {
   button:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.3);
-  }
-
-  /* Estilo para el dígito verificador */
-  #digitoVerificador {
-    font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
-    font-weight: 700;
-    font-size: 1.125rem;
   }
 </style>

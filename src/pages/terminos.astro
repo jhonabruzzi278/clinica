@@ -1,0 +1,619 @@
+---
+// filepath: c:\TRABAJOS\clinica\src\pages\terminos.astro
+import Layout from "~/layouts/MainLayout.astro";
+---
+
+<Layout title="Términos y Condiciones - Clínica Linda Sonrisa">
+  <main class="min-h-screen bg-gradient-to-br from-teal-50 to-blue-50 py-8 px-4">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-teal-600 rounded-full mb-6 shadow-lg">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+        </div>
+        <h1 class="text-4xl font-bold text-teal-700 mb-4">
+          Términos y Condiciones
+        </h1>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          Al utilizar nuestros servicios, usted acepta cumplir con estos términos y condiciones. 
+          Por favor, léalos cuidadosamente.
+        </p>
+        <div class="mt-4 text-sm text-gray-500">
+          <p><strong>Última actualización:</strong> 12 de junio de 2025</p>
+          <p><strong>Vigencia:</strong> A partir del 1 de enero de 2025</p>
+        </div>
+      </div>
+
+      <!-- Contenido principal -->
+      <div class="bg-white rounded-3xl shadow-xl p-8 border border-teal-100">
+        
+        <!-- Tabla de contenidos -->
+        <div class="bg-gray-50 rounded-xl p-6 mb-8 border border-gray-200">
+          <h2 class="text-xl font-semibold text-gray-800 mb-4">Índice de Contenidos</h2>
+          <nav class="grid md:grid-cols-2 gap-2">
+            <a href="#aceptacion" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">1. Aceptación de términos</a>
+            <a href="#servicios" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">2. Descripción de servicios</a>
+            <a href="#registro" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">3. Registro de usuario</a>
+            <a href="#uso" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">4. Uso aceptable</a>
+            <a href="#citas" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">5. Política de citas</a>
+            <a href="#pagos" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">6. Pagos y facturación</a>
+            <a href="#privacidad" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">7. Protección de datos</a>
+            <a href="#responsabilidad" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">8. Limitación de responsabilidad</a>
+            <a href="#propiedad" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">9. Propiedad intelectual</a>
+            <a href="#modificaciones" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">10. Modificaciones</a>
+            <a href="#terminacion" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">11. Terminación</a>
+            <a href="#contacto" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">12. Información de contacto</a>
+          </nav>
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+          
+          <!-- 1. Aceptación de términos -->
+          <section id="aceptacion" class="mb-8 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
+              <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">1</span>
+              Aceptación de Términos
+            </h2>
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+              <p class="text-blue-800"><strong>Importante:</strong> Al acceder y utilizar los servicios de Clínica Linda Sonrisa, usted acepta estar legalmente obligado por estos términos y condiciones.</p>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Estos términos y condiciones ("Términos") rigen el uso de los servicios proporcionados por Clínica Linda Sonrisa S.A. ("la Clínica", "nosotros", "nuestro") a través de nuestro sitio web, aplicación móvil y servicios médicos presenciales.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Si no está de acuerdo con alguno de estos términos, no debe utilizar nuestros servicios. Su uso continuado de nuestros servicios constituye su aceptación de cualquier modificación a estos términos.
+            </p>
+          </section>
+
+          <!-- 2. Descripción de servicios -->
+          <section id="servicios" class="mb-8 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
+              <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">2</span>
+              Descripción de Servicios
+            </h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Clínica Linda Sonrisa ofrece servicios de atención médica dental que incluyen, pero no se limitan a:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+              <li>Consultas odontológicas generales y especializadas</li>
+              <li>Tratamientos preventivos y curativos</li>
+              <li>Cirugías dentales y maxilofaciales</li>
+              <li>Servicios de ortodoncia</li>
+              <li>Implantología dental</li>
+              <li>Estética dental</li>
+              <li>Plataforma digital para agendamiento de citas</li>
+              <li>Acceso a historial médico digital</li>
+            </ul>
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+              <p class="text-yellow-800"><strong>Nota:</strong> Los servicios pueden variar según la disponibilidad, ubicación y especialistas disponibles. No todos los servicios están disponibles en todas las sucursales.</p>
+            </div>
+          </section>
+
+          <!-- 3. Registro de usuario -->
+          <section id="registro" class="mb-8 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
+              <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">3</span>
+              Registro de Usuario
+            </h2>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">3.1 Requisitos de registro</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Para utilizar nuestros servicios digitales, debe crear una cuenta proporcionando información precisa, actual y completa. Usted es responsable de:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Proporcionar información verídica y actualizada</li>
+              <li>Mantener la confidencialidad de sus credenciales de acceso</li>
+              <li>Notificar inmediatamente cualquier uso no autorizado de su cuenta</li>
+              <li>Ser mayor de 18 años o contar con autorización de un tutor legal</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">3.2 Verificación de identidad</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Nos reservamos el derecho de verificar su identidad en cualquier momento y solicitar documentación adicional. El acceso a ciertos servicios puede requerir verificación previa.
+            </p>
+          </section>
+
+          <!-- 4. Uso aceptable -->
+          <section id="uso" class="mb-8 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
+              <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">4</span>
+              Uso Aceptable
+            </h2>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">4.1 Conductas permitidas</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Usted puede utilizar nuestros servicios únicamente para fines legítimos y de acuerdo con estos términos.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">4.2 Conductas prohibidas</h3>
+            <div class="bg-red-50 border-l-4 border-red-400 p-4 mb-4">
+              <p class="text-red-800 mb-2"><strong>Está estrictamente prohibido:</strong></p>
+              <ul class="list-disc list-inside text-red-700 space-y-1">
+                <li>Usar el servicio para actividades ilegales o fraudulentas</li>
+                <li>Interferir con el funcionamiento de nuestros sistemas</li>
+                <li>Intentar acceder a cuentas de otros usuarios</li>
+                <li>Proporcionar información médica falsa o engañosa</li>
+                <li>Hacer uso comercial no autorizado de nuestros servicios</li>
+                <li>Enviar contenido spam, malicioso o inapropiado</li>
+                <li>Violar derechos de propiedad intelectual</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- 5. Política de citas -->
+          <section id="citas" class="mb-8 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
+              <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">5</span>
+              Política de Citas
+            </h2>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">5.1 Agendamiento</h3>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+              <li>Las citas se agendan según disponibilidad</li>
+              <li>La confirmación se envía por email y SMS</li>
+              <li>Los horarios están sujetos a disponibilidad del profesional</li>
+              <li>Algunas especialidades requieren derivación médica</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">5.2 Cancelaciones y reprogramaciones</h3>
+            <div class="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-4">
+              <h4 class="font-semibold text-orange-800 mb-2">Políticas importantes:</h4>
+              <ul class="list-disc list-inside text-orange-700 space-y-1">
+                <li><strong>Cancelación:</strong> Mínimo 24 horas de anticipación</li>
+                <li><strong>Reprogramación:</strong> Hasta 2 horas antes de la cita</li>
+                <li><strong>No show:</strong> Puede resultar en cargo del 50% del valor de la consulta</li>
+                <li><strong>Llegadas tardías:</strong> Más de 15 minutos puede resultar en reprogramación</li>
+              </ul>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">5.3 Urgencias</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Para urgencias dentales, contamos con horarios especiales. Las urgencias reales tienen prioridad sobre citas programadas y pueden alterar horarios establecidos.
+            </p>
+          </section>
+
+          <!-- 6. Pagos y facturación -->
+          <section id="pagos" class="mb-8 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
+              <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">6</span>
+              Pagos y Facturación
+            </h2>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">6.1 Métodos de pago</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Aceptamos los siguientes métodos de pago:
+            </p>
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-gray-800 mb-2">Presencial:</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• Efectivo</li>
+                  <li>• Tarjetas de crédito/débito</li>
+                  <li>• Transferencias bancarias</li>
+                  <li>• Seguros médicos</li>
+                </ul>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-gray-800 mb-2">Digital:</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• Webpay Plus</li>
+                  <li>• PayPal</li>
+                  <li>• Mercado Pago</li>
+                  <li>• Transferencias electrónicas</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">6.2 Política de facturación</h3>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+              <li>Los precios están expresados en pesos chilenos (CLP)</li>
+              <li>Los precios pueden cambiar sin previo aviso</li>
+              <li>Las facturas se emiten inmediatamente después del pago</li>
+              <li>Los seguros médicos se procesan según convenios vigentes</li>
+              <li>Los planes de tratamiento requieren autorización previa</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">6.3 Reembolsos</h3>
+            <p class="text-gray-700 leading-relaxed mb-2">
+              Los reembolsos se procesan según las siguientes condiciones:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 space-y-1">
+              <li>Cancelación de tratamiento no iniciado: 100% del monto</li>
+              <li>Cancelación de tratamiento iniciado: Según evaluación caso a caso</li>
+              <li>Error en facturación: Reembolso completo</li>
+              <li>Tiempo de procesamiento: 5-10 días hábiles</li>
+            </ul>
+          </section>
+
+          <!-- 7. Protección de datos -->
+          <section id="privacidad" class="mb-8 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
+              <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">7</span>
+              Protección de Datos Personales
+            </h2>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <p class="text-blue-800">
+                <strong>Privacidad garantizada:</strong> Sus datos personales y médicos están protegidos según la Ley N° 19.628 sobre Protección de la Vida Privada y la Ley N° 20.584 que regula los derechos y deberes de los pacientes.
+              </p>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">7.1 Información que recopilamos</h3>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Datos de identificación personal (nombre, RUT, contacto)</li>
+              <li>Información médica y dental</li>
+              <li>Historial de tratamientos y diagnósticos</li>
+              <li>Datos de facturación y seguros</li>
+              <li>Información de uso de la plataforma digital</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">7.2 Uso de la información</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Utilizamos su información exclusivamente para:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Proporcionar servicios médicos dentales</li>
+              <li>Gestionar citas y seguimientos</li>
+              <li>Procesar pagos y facturación</li>
+              <li>Comunicaciones relacionadas con su tratamiento</li>
+              <li>Cumplir con obligaciones legales y regulatorias</li>
+              <li>Mejorar nuestros servicios (datos anonimizados)</li>
+            </ul>
+            
+            <p class="text-gray-700 leading-relaxed">
+              Para más detalles, consulte nuestra <a href="/privacidad" class="text-teal-600 hover:text-teal-700 underline">Política de Privacidad</a> completa.
+            </p>
+          </section>
+
+          <!-- 8. Limitación de responsabilidad -->
+          <section id="responsabilidad" class="mb-8 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
+              <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">8</span>
+              Limitación de Responsabilidad
+            </h2>
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+              <p class="text-yellow-800"><strong>Importante:</strong> Estos límites de responsabilidad se aplican en la máxima medida permitida por la ley chilena.</p>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">8.1 Servicios médicos</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Nuestros profesionales están debidamente capacitados y certificados. Sin embargo, reconocemos que:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Los resultados médicos pueden variar entre pacientes</li>
+              <li>Existen riesgos inherentes en cualquier procedimiento médico</li>
+              <li>Los tratamientos requieren la colaboración del paciente</li>
+              <li>Algunos resultados dependen de factores fuera de nuestro control</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">8.2 Plataforma digital</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Nos esforzamos por mantener nuestros sistemas digitales funcionando correctamente, pero no garantizamos:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Disponibilidad continua del servicio 24/7</li>
+              <li>Ausencia total de errores técnicos</li>
+              <li>Compatibilidad con todos los dispositivos</li>
+              <li>Velocidad constante de conexión</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">8.3 Exclusiones</h3>
+            <p class="text-gray-700 leading-relaxed">
+              No seremos responsables por daños indirectos, consecuenciales, especiales o punitivos, incluyendo pero no limitado a pérdida de ganancias, datos o uso, incapacidad de usar el servicio, o costos de servicios sustitutos.
+            </p>
+          </section>
+
+          <!-- 9. Propiedad intelectual -->
+          <section id="propiedad" class="mb-8 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
+              <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">9</span>
+              Propiedad Intelectual
+            </h2>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">9.1 Contenido de la clínica</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Todo el contenido disponible en nuestros servicios, incluyendo pero no limitado a:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Textos, gráficos, logos e imágenes</li>
+              <li>Software y código fuente</li>
+              <li>Diseños y interfaces de usuario</li>
+              <li>Material educativo y médico</li>
+              <li>Marcas comerciales y nombres comerciales</li>
+            </ul>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Es propiedad de Clínica Linda Sonrisa o está licenciado para nuestro uso, y está protegido por las leyes de propiedad intelectual chilenas e internacionales.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">9.2 Uso permitido</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Se le otorga una licencia limitada, no exclusiva y revocable para usar nuestros servicios únicamente para fines personales y no comerciales.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">9.3 Restricciones</h3>
+            <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+              <p class="text-red-800 mb-2"><strong>Prohibido:</strong></p>
+              <ul class="list-disc list-inside text-red-700 space-y-1">
+                <li>Copiar, modificar o distribuir nuestro contenido</li>
+                <li>Usar nuestras marcas comerciales sin autorización</li>
+                <li>Realizar ingeniería inversa de nuestros sistemas</li>
+                <li>Crear trabajos derivados de nuestro contenido</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- 10. Modificaciones -->
+          <section id="modificaciones" class="mb-8 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
+              <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">10</span>
+              Modificaciones de los Términos
+            </h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones pueden ser necesarias debido a:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Cambios en la legislación aplicable</li>
+              <li>Nuevos servicios o funcionalidades</li>
+              <li>Mejoras en nuestras políticas de seguridad</li>
+              <li>Retroalimentación de usuarios y reguladores</li>
+            </ul>
+            
+            <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+              <h3 class="font-semibold text-green-800 mb-2">Proceso de notificación:</h3>
+              <ul class="list-disc list-inside text-green-700 space-y-1">
+                <li>Notificación por email con 30 días de anticipación</li>
+                <li>Publicación en nuestro sitio web</li>
+                <li>Mensaje en la aplicación móvil</li>
+                <li>Para cambios significativos: notificación por SMS</li>
+              </ul>
+            </div>
+            
+            <p class="text-gray-700 leading-relaxed">
+              Su uso continuado de nuestros servicios después de la fecha de vigencia de las modificaciones constituye su aceptación de los nuevos términos.
+            </p>
+          </section>
+
+          <!-- 11. Terminación -->
+          <section id="terminacion" class="mb-8 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
+              <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">11</span>
+              Terminación del Servicio
+            </h2>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">11.1 Terminación por parte del usuario</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Usted puede terminar su relación con nosotros en cualquier momento:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Dejando de usar nuestros servicios</li>
+              <li>Solicitando la eliminación de su cuenta</li>
+              <li>Notificándonos por escrito su decisión</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">11.2 Terminación por parte de la clínica</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Podemos suspender o terminar su acceso a nuestros servicios si:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+              <li>Viola estos términos y condiciones</li>
+              <li>Proporciona información falsa o engañosa</li>
+              <li>Usa nuestros servicios de manera abusiva</li>
+              <li>No cumple con las políticas de pago</li>
+              <li>Representa un riesgo para otros pacientes o nuestro personal</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">11.3 Efectos de la terminación</h3>
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <p class="text-gray-700 mb-2">Al terminar la relación:</p>
+              <ul class="list-disc list-inside text-gray-700 space-y-1">
+                <li>Se suspende el acceso a servicios digitales</li>
+                <li>Se mantiene el historial médico según ley</li>
+                <li>Se procesan pagos pendientes</li>
+                <li>Se pueden transferir registros médicos a solicitud</li>
+                <li>Ciertas obligaciones continúan vigentes</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- 12. Información de contacto -->
+          <section id="contacto" class="mb-8 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
+              <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">12</span>
+              Información de Contacto
+            </h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+              Para preguntas, reclamos o solicitudes relacionadas con estos términos y condiciones, puede contactarnos a través de:
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-teal-50 border border-teal-200 rounded-lg p-6">
+                <h3 class="font-semibold text-teal-800 mb-4">Información Legal</h3>
+                <div class="space-y-2 text-sm text-teal-700">
+                  <p><strong>Razón Social:</strong> Clínica Linda Sonrisa S.A.</p>
+                  <p><strong>RUT:</strong> 96.543.210-1</p>
+                  <p><strong>Representante Legal:</strong> Dr. Carlos Mendoza Silva</p>
+                  <p><strong>Dirección:</strong> Av. Providencia 1234, Providencia, Santiago</p>
+                </div>
+              </div>
+              
+              <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <h3 class="font-semibold text-blue-800 mb-4">Contacto Directo</h3>
+                <div class="space-y-2 text-sm text-blue-700">
+                  <p><strong>Teléfono:</strong> +56 2 2345 6789</p>
+                  <p><strong>Email Legal:</strong> legal@clinicalindasonrisa.cl</p>
+                  <p><strong>Email General:</strong> contacto@clinicalindasonrisa.cl</p>
+                  <p><strong>Horario:</strong> Lunes a Viernes, 8:00 - 18:00</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6 bg-green-50 border border-green-200 rounded-lg p-4">
+              <h3 class="font-semibold text-green-800 mb-2">Ley aplicable y jurisdicción</h3>
+              <p class="text-green-700 text-sm">
+                Estos términos se rigen por las leyes de la República de Chile. Cualquier disputa será resuelta por los tribunales competentes de Santiago, Chile.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Footer del documento -->
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <div class="bg-gray-50 rounded-xl p-6">
+            <div class="flex items-center justify-between flex-wrap gap-4">
+              <div>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Documento vigente desde:</strong> 1 de enero de 2025
+                </p>
+                <p class="text-sm text-gray-600">
+                  <strong>Última actualización:</strong> 12 de junio de 2025
+                </p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Versión:</strong> 2.1
+                </p>
+                <a href="/privacidad" class="text-teal-600 hover:text-teal-700 text-sm underline">
+                  Ver Política de Privacidad
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/register" 
+          class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-8 rounded-xl transition-colors text-center"
+        >
+          Crear cuenta
+        </a>
+        <a 
+          href="/contacto" 
+          class="bg-white hover:bg-gray-50 text-teal-600 font-semibold py-3 px-8 rounded-xl border-2 border-teal-600 transition-colors text-center"
+        >
+          Contactar soporte
+        </a>
+        <button 
+          onclick="window.print()" 
+          class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-8 rounded-xl transition-colors"
+        >
+          Imprimir términos
+        </button>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Smooth scrolling para los enlaces del índice
+  document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Actualizar URL sin recargar la página
+          window.history.pushState({}, '', `#${targetId}`);
+        }
+      });
+    });
+    
+    // Highlight de sección activa al hacer scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    window.addEventListener('scroll', function() {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = (section as HTMLElement).offsetTop;
+        const sectionHeight = (section as HTMLElement).clientHeight;
+        
+        if (window.pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id') || '';
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('font-bold', 'text-teal-700');
+        const href = link.getAttribute('href');
+        if (href && href.substring(1) === current) {
+          link.classList.add('font-bold', 'text-teal-700');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Estilos de impresión */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    
+    body {
+      font-size: 12pt;
+      line-height: 1.4;
+    }
+    
+    h1 {
+      font-size: 18pt;
+    }
+    
+    h2 {
+      font-size: 16pt;
+      page-break-after: avoid;
+    }
+    
+    h3 {
+      font-size: 14pt;
+      page-break-after: avoid;
+    }
+    
+    .bg-gradient-to-br {
+      background: white !important;
+    }
+    
+    .shadow-xl {
+      box-shadow: none !important;
+    }
+    
+    .border {
+      border: 1px solid #ccc !important;
+    }
+  }
+  
+  /* Scroll suave */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Estilos para enlaces activos */
+  nav a.font-bold {
+    background-color: rgba(13, 148, 136, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+  }
+  
+  /* Mejoras de accesibilidad */
+  section:target {
+    animation: highlight 2s ease-in-out;
+  }
+  
+  @keyframes highlight {
+    0% { background-color: rgba(59, 130, 246, 0.1); }
+    100% { background-color: transparent; }
+  }
+</style>
