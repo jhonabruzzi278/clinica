@@ -1,17 +1,22 @@
 import { defineConfig } from 'astro/config';
-import vercelAdapter from '@astrojs/vercel/serverless';
+
 import tailwindcss from '@tailwindcss/vite';
-
-
-import mdx from '@astrojs/mdx';
-
+import clerk from '@clerk/astro';
+import node from '@astrojs/node';
 
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
-
+  integrations: [
+    clerk({
+      afterSignInUrl: '/',
+      afterSignUpUrl: '/',
+      ssoCallbackUrl: '/login/sso-callback',
+    })
+  ],
   output: 'server',
-  adapter: vercelAdapter({}),
-  integrations: [mdx()],
+  adapter: node({
+    mode: 'standalone'
+  })
 });
