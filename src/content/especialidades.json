@@ -3,7 +3,7 @@
     "nombre": "Ortodoncia",
     "descripcion": "Alineación dental para una sonrisa armónica.",
     "icono": "🦷",
-    "imagen": "orto.jpg",
+    "imagen": "ortodoncia.webp",
     "slug": "ortodoncia"
   },
   {
@@ -17,7 +17,7 @@
     "nombre": "Endodoncia",
     "descripcion": "Tratamiento de conducto sin dolor.",
     "icono": "🧪",
-    "imagen": "endodoncia.jpg",
+    "imagen": "endodoncia.webp",
     "slug": "endodoncia"
   },
   {
@@ -38,7 +38,7 @@
     "nombre": "Estética dental",
     "descripcion": "Blanqueamiento y diseño de sonrisa.",
     "icono": "✨",
-    "imagen": "estetica.jpg",
+    "imagen": "estetica.webp",
     "slug": "estetica-dental"
   }
 ]

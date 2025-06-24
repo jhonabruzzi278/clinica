@@ -2,7 +2,7 @@ export const testimonios = [
   {
     nombre: "Marcela R.",
     texto: "Excelente atención, muy profesionales y empáticos. Me hicieron sentir muy cómoda.",
-    imagen: "/images/paciente2.png"
+    imagen: "/images/paciente2.webp"
   },
   {
     nombre: "Pedro G.",
@@ -14,6 +14,6 @@ export const testimonios = [
   {
     nombre: "Camila A.",
     texto: "Me atendieron súper rápido y el tratamiento fue totalmente efectivo. ¡Los recomiendo!",
-    imagen: "/images/paciente3.jpg"
+    imagen: "/images/paciente3.webp"
   }
 ];
