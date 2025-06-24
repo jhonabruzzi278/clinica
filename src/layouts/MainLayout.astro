@@ -1,23 +1,109 @@
 ---
-
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Footer from '../components/Footer.astro';  
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+}
+
+const { 
+  title = "Clínica Linda Sonrisa - Especialistas en Salud Dental",
+  description = "Clínica dental especializada en implantes, ortodoncia, endodoncia y estética dental. Atención personalizada con tecnología avanzada. Agenda tu cita hoy.",
+  keywords = "clinica dental, implantes dentales, ortodoncia, endodoncia, limpieza dental, estética dental, dentista, salud bucal",
+  ogImage = "/images/clinica-og.jpg"
+} = Astro.props;
 ---
 
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	  <meta name="google-site-verification" content="oc8QPR6IPiH68kgpdA2me1nzKfgRkwZcWBJbZC1hH7E" />
-    <meta name="description" content="Especialistas en salud dental. Agenda tu atención con nosotros." />
-    <title>Clínica Linda Sonrisa</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="icono.svg" />
+
+    <link rel="apple-touch-icon" href="image/apple-touch-icon.png" />
+
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Clínica Linda Sonrisa" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#16a085" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Clínica Linda Sonrisa" />
+    <meta property="og:locale" content="es_ES" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "name": "Clínica Linda Sonrisa",
+        "description": "Clínica dental especializada en implantes, ortodoncia, endodoncia y estética dental",
+        "url": "https://clinica-linda-sonrisa.com",
+        "telephone": "+56 938980598",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle serrano",
+          "addressLocality": "melipilla",
+          "addressRegion": "Región Metropolitana",
+          "postalCode": "9860000",
+          "addressCountry": "CL"
+        },
+        "openingHours": [
+          "Mo-Fr 09:00-18:00",
+          "Sa 09:00-14:00"
+        ],
+        "priceRange": "$$",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "127"
+        },
+        "medicalSpecialty": [
+          "Implantología",
+          "Ortodoncia", 
+          "Endodoncia",
+          "Estética Dental",
+          "Periodoncia"
+        ]
+      }
+    </script>
+    
+    <!-- Google Verification -->
+    <meta name="google-site-verification" content="oc8QPR6IPiH68kgpdA2me1nzKfgRkwZcWBJbZC1hH7E" />
+    
+    <!-- Preload Critical Resources -->
+    
+    <link rel="dns-prefetch" href="//vercel.live" />
+    
+    <!-- Analytics -->
     <Analytics />
     <SpeedInsights />
-
   </head>
+  
   <body class="bg-background font-sans text-text-base">
     <Header />
     <main>
