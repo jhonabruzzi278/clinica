@@ -98,7 +98,7 @@ const {
     <meta name="google-site-verification" content="oc8QPR6IPiH68kgpdA2me1nzKfgRkwZcWBJbZC1hH7E" />
     
     <!-- Preload Critical Resources -->
-    
+    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="dns-prefetch" href="//vercel.live" />
     
     <!-- Analytics -->
@@ -106,9 +106,14 @@ const {
     <SpeedInsights />
   </head>
   
-  <body class="bg-background font-sans text-text-base">
+  <body class="bg-white font-sans text-gray-900 antialiased">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-teal-600 text-white px-4 py-2 rounded-lg z-50 transition-colors">
+      Saltar al contenido principal
+    </a>
+    
     <Header />
-    <main>
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <Footer />

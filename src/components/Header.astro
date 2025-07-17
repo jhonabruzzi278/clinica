@@ -1,236 +1,108 @@
 ---
-// filepath: c:\TRABAJOS\clinica\src\components\Header.astro
+// Simple and clean header - no distractions, immediate content delivery
 ---
 
-<nav class="bg-white shadow-lg fixed w-full z-20 top-0 start-0 border-b-4 border-teal-500" role="navigation" aria-label="Navegación principal">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse hover:opacity-80 transition-opacity" aria-label="Linda Sonrisa - Clínica Dental, ir al inicio">
-      <img src="/icono.svg" alt="Logo de Linda Sonrisa - Clínica Dental" class="h-10 w-10" />
-      <div>
-        <span class="self-center text-2xl font-bold whitespace-nowrap text-teal-700 tracking-tight">Linda Sonrisa</span>
-        <!-- Cambiar este tagline si quieres personalizar el mensaje -->
-        <p class="text-sm text-gray-600 -mt-1 hidden sm:block">Tu sonrisa es nuestra pasión</p>
-      </div>
-    </a>
+<header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-10" role="banner">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-3 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded-lg p-1" aria-label="Linda Sonrisa - Clínica Dental">
+        <img src="/icono.svg" alt="" class="h-8 w-8" />
+        <div>
+          <span class="text-xl font-bold text-teal-700">Linda Sonrisa</span>
+          <p class="text-xs text-gray-500 -mt-1 hidden sm:block">Clínica Dental</p>
+        </div>
+      </a>
 
-    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8" role="navigation" aria-label="Navegación principal">
+        <a href="/" class="text-gray-700 hover:text-teal-600 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded px-2 py-1">
+          Inicio
+        </a>
+        <a href="/#especialidades" class="text-gray-700 hover:text-teal-600 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded px-2 py-1">
+          Servicios
+        </a>
+        <a href="/#testimonios" class="text-gray-700 hover:text-teal-600 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded px-2 py-1">
+          Testimonios
+        </a>
+        <a href="/contacto" class="text-gray-700 hover:text-teal-600 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded px-2 py-1">
+          Contacto
+        </a>
+      </nav>
+
+      <!-- CTA Button -->
       <a 
         href="/contacto" 
-        class="text-white bg-teal-600 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-300 font-semibold rounded-full text-sm px-6 py-2 text-center transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
-        aria-label="Agendar cita en Linda Sonrisa - Clínica Dental"
-        title="Agendar cita dental"
+        class="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+        aria-label="Agendar cita dental"
       >
         <span class="hidden sm:inline">Agendar Cita</span>
         <span class="sm:hidden">Cita</span>
       </a>
-      
+
+      <!-- Mobile menu button -->
       <button 
-        data-collapse-toggle="navbar-sticky" 
         type="button" 
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 transition-colors" 
-        aria-controls="navbar-sticky" 
+        class="md:hidden ml-4 p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-colors" 
+        aria-controls="mobile-menu" 
         aria-expanded="false"
         aria-label="Abrir menú de navegación"
-        title="Menú de navegación"
+        id="mobile-menu-button"
       >
-        <span class="sr-only">Abrir menú principal</span>
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
 
-    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-      <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white" role="menubar">
-        <li role="none">
-          <a href="/" class="block py-2 px-3 text-teal-700 bg-teal-50 rounded md:bg-transparent md:text-teal-700 md:p-0 font-semibold transition-colors duration-200 hover:text-teal-800" aria-current="page" role="menuitem" title="Inicio - Linda Sonrisa Clínica Dental">
-            Inicio
-          </a>
-        </li>
-        <li role="none">
-          <a href="/#servicios" class="block py-2 px-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-600 md:p-0 font-medium transition-colors duration-200" role="menuitem" title="Servicios dentales - Tratamientos odontológicos">
-            Servicios
-          </a>
-        </li>
-        <li role="none">
-          <a href="/#especialidades" class="block py-2 px-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-600 md:p-0 font-medium transition-colors duration-200" role="menuitem" title="Especialidades dentales - Ortodencia, Implantes, Estética">
-            Especialidades
-          </a>
-        </li>
-        <li role="none">
-          <a href="/#testimonios" class="block py-2 px-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-600 md:p-0 font-medium transition-colors duration-200" role="menuitem" title="Testimonios de pacientes - Reseñas clínica dental">
-            Testimonios
-          </a>
-        </li>
-        <li role="none">
-          <a href="/contacto" class="block py-2 px-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-teal-600 md:p-0 font-medium transition-colors duration-200" role="menuitem" title="Contacto - Agendar cita dental WhatsApp">
-            Contacto
-          </a>
-        </li>
-      </ul>
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+      <nav class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100" role="navigation" aria-label="Navegación móvil">
+        <a href="/" class="block px-3 py-2 text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">
+          Inicio
+        </a>
+        <a href="/#especialidades" class="block px-3 py-2 text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">
+          Servicios
+        </a>
+        <a href="/#testimonios" class="block px-3 py-2 text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">
+          Testimonios
+        </a>
+        <a href="/contacto" class="block px-3 py-2 text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">
+          Contacto
+        </a>
+      </nav>
     </div>
   </div>
-</nav>
+</header>
 
-<div class="h-20" aria-hidden="true"></div>
-
-<script>
+<script is:inline>
+// Simple mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
-  const button = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
-  const navbar = document.getElementById('navbar-sticky');
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
   
-  if (button && navbar) {
+  if (button && menu) {
     button.addEventListener('click', function() {
-      const expanded = button.getAttribute('aria-expanded') === 'true';
+      const isOpen = !menu.classList.contains('hidden');
       
-      navbar.classList.toggle('hidden');
-      button.setAttribute('aria-expanded', (!expanded).toString());
-      
-      const svg = button.querySelector('svg');
-      if (svg) {
-        if (navbar.classList.contains('hidden')) {
-          svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-          button.setAttribute('aria-label', 'Abrir menú de navegación');
-        } else {
-          svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6m0 12L6 6"></path>';
-          button.setAttribute('aria-label', 'Cerrar menú de navegación');
-        }
+      if (isOpen) {
+        menu.classList.add('hidden');
+        button.setAttribute('aria-expanded', 'false');
+      } else {
+        menu.classList.remove('hidden');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!button.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.add('hidden');
+        button.setAttribute('aria-expanded', 'false');
       }
     });
   }
-
-  const mobileLinks = navbar?.querySelectorAll('a');
-  mobileLinks?.forEach(link => {
-    link.addEventListener('click', function() {
-      if (window.innerWidth < 768 && navbar) {
-        navbar.classList.add('hidden');
-        button?.setAttribute('aria-expanded', 'false');
-        button?.setAttribute('aria-label', 'Abrir menú de navegación');
-        
-        const svg = button?.querySelector('svg');
-        if (svg) {
-          svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-        }
-      }
-    });
-  });
-
-  const currentPath = window.location.pathname;
-  const links = document.querySelectorAll('nav a[href]');
-  
-  links.forEach(link => {
-    const href = link.getAttribute('href');
-    
-    link.classList.remove('text-teal-700', 'bg-teal-50', 'font-semibold');
-    link.classList.add('text-gray-700', 'font-medium');
-    
-    if (href === currentPath || (href === '/' && currentPath === '/')) {
-      link.classList.remove('text-gray-700', 'font-medium');
-      link.classList.add('text-teal-700', 'font-semibold');
-      link.setAttribute('aria-current', 'page');
-      
-      if (window.innerWidth < 768) {
-        link.classList.add('bg-teal-50');
-      }
-    } else {
-      link.removeAttribute('aria-current');
-    }
-  });
-
-  let lastScrollTop = 0;
-  window.addEventListener('scroll', function() {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (currentScroll > lastScrollTop && currentScroll > 100) {
-      if (navbar && !navbar.classList.contains('hidden')) {
-        navbar.classList.add('hidden');
-        button?.setAttribute('aria-expanded', 'false');
-        button?.setAttribute('aria-label', 'Abrir menú de navegación');
-        
-        const svg = button?.querySelector('svg');
-        if (svg) {
-          svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-        }
-      }
-    }
-    
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-  });
 });
 </script>
 
-<style>
-  nav {
-    transition: all 0.3s ease-in-out;
-  }
-  
-  nav a {
-    transition: all 0.2s ease-in-out;
-  }
-  
-  nav a:hover {
-    transform: translateY(-1px);
-  }
-  
-  nav a[href="/contacto"].bg-teal-600 {
-    box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
-  }
-  
-  nav a[href="/contacto"].bg-teal-600:hover {
-    box-shadow: 0 6px 20px rgba(13, 148, 136, 0.4);
-    transform: translateY(-2px);
-  }
-  
-  @media (max-width: 640px) {
-    .max-w-screen-xl {
-      padding: 0.75rem;
-    }
-    
-    nav a[href="/contacto"] {
-      padding: 0.5rem 1rem;
-      font-size: 0.875rem;
-    }
-  }
-  
-  #navbar-sticky {
-    transition: all 0.3s ease-in-out;
-  }
-  
-  nav a.text-teal-700::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background-color: #0d9488;
-    transition: width 0.3s ease;
-  }
-  
-  @media (min-width: 768px) {
-    nav a.text-teal-700 {
-      position: relative;
-    }
-    
-    nav a.text-teal-700::after {
-      width: 100%;
-    }
-  }
-
-  button[data-collapse-toggle] svg {
-    transition: all 0.3s ease-in-out;
-  }
-
-  button[data-collapse-toggle]:hover {
-    background-color: rgba(229, 231, 235, 0.5);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-</style>
