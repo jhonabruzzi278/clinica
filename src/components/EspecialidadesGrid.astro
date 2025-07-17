@@ -18,8 +18,7 @@ import especialidades from '../content/especialidades.json';
     <div class="especialidades-container" role="list" aria-label="Lista de especialidades dentales">
       {Array.isArray(especialidades) && especialidades.map((especialidad, index) => (
         <article 
-          class="especialidad-card animate-slide-up" 
-          style={`animation-delay: ${index * 0.1}s`}
+          class="especialidad-card" 
           role="listitem" 
           tabindex="0"
           aria-labelledby={`especialidad-${index}-title`}
