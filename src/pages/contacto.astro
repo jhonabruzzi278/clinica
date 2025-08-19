@@ -3,8 +3,8 @@
 import MainLayout from '../layouts/MainLayout.astro';
 
 // Configura tu número de WhatsApp (incluye el código de país sin +)
-const whatsappNumber = "938980598"; // Ejemplo: Colombia +57 300 123 4567
-const whatsappMessage = "¡Hola! Me interesa agendar una cita en Clínica Linda Sonrisa 😊";
+const whatsappNumber = "56986483379"; // Chile +56 9 8648 3379
+const whatsappMessage = "¡Hola! Vengo desde la web y me interesa agendar una cita en Clínica Linda Sonrisa 😊";
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 ---
 
@@ -59,7 +59,6 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
           </a>
         </div>
 
-        <!-- Información adicional -->
         <div class="bg-teal-50 rounded-2xl p-6 border border-teal-100">
           <div class="grid md:grid-cols-2 gap-6">
             <div class="text-center">
@@ -113,3 +112,31 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
     }
   });
 </script>
+        <!-- Información adicional actualizada -->
+        <div class="bg-teal-50 rounded-2xl p-6 border border-teal-100 mt-8">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-gray-800 mb-1">Horario de Atención</h3>
+              <p class="text-gray-600 text-sm">Lunes a Viernes: 9:30 a 18:30<br>Sábado: 9:30 a 15:30</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 01-8 0" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v7m0 0H9m3 0h3" />
+                </svg>
+              </div>
+              <h3 class="font-semibold text-gray-800 mb-1">Dirección</h3>
+              <p class="text-gray-600 text-sm">Serrano 542, Galería Larosa, 2do piso, local 14, Melipilla</p>
+            </div>
+          </div>
+          <div class="mt-6 text-center">
+            <p class="text-gray-700 text-base"><strong>Teléfono:</strong> +56 9 8648 3379<br><strong>Correo:</strong> dentallindasonrisa@gmail.com</p>
+            <p class="text-green-700 text-sm mt-2">Si vienes desde la web, ¡menciónalo para una atención personalizada!</p>
+          </div>
+        </div>
