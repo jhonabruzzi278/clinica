@@ -32,6 +32,24 @@ import Layout from "../layouts/MainLayout.astro";
         
         <!-- Tabla de contenidos -->
         <div class="bg-gray-50 rounded-xl p-6 mb-8 border border-gray-200">
+
+        <!-- Términos y Condiciones resumidos para Clínica Linda Sonrisa -->
+        <section class="mb-8 prose prose-sm max-w-none text-justify">
+          <h2 class="text-2xl font-bold text-teal-700 mb-4">Términos y Condiciones</h2>
+          <p>Bienvenido al sitio web de Clínica Linda Sonrisa. Al navegar y utilizar nuestros servicios, aceptas los siguientes términos:</p>
+          <ul>
+            <li><strong>Uso del sitio:</strong> Puedes navegar, informarte y contactar a la clínica sin costo. La información publicada es referencial y puede cambiar sin previo aviso.</li>
+            <li><strong>Servicios:</strong> Ofrecemos atención dental presencial en Serrano 542, Galería Larosa, 2do piso, local 14, Melipilla. Los horarios son de lunes a viernes de 9:30 a 18:30 y sábado de 9:30 a 15:30.</li>
+            <li><strong>Contacto:</strong> Teléfono +56 9 8648 3379, correo dentallindasonrisa@gmail.com. Si vienes desde la web, menciónalo para atención personalizada.</li>
+            <li><strong>Privacidad:</strong> Tus datos serán tratados de forma confidencial y solo para fines de contacto y gestión de citas, según la Ley 19.628.</li>
+            <li><strong>Pagos:</strong> Los pagos se realizan presencialmente en la clínica. No solicitamos pagos en línea ni por transferencias a terceros.</li>
+            <li><strong>Propiedad intelectual:</strong> El contenido de este sitio es propiedad de Clínica Linda Sonrisa. No está permitido copiar ni reproducir sin autorización.</li>
+            <li><strong>Responsabilidad:</strong> Clínica Linda Sonrisa no se responsabiliza por el uso indebido de la información publicada ni por enlaces a sitios externos.</li>
+            <li><strong>Ley aplicable:</strong> Este sitio y sus servicios se rigen por la legislación chilena.</li>
+          </ul>
+          <p>Para más información, puedes contactarnos directamente o revisar nuestra <a href="/privacidad" class="text-teal-600 hover:text-teal-700 underline">Política de Privacidad</a>.</p>
+        </section>
+
           <h2 class="text-xl font-semibold text-gray-800 mb-4">Índice de Contenidos</h2>
           <nav class="grid md:grid-cols-2 gap-2">
             <a href="#aceptacion" class="text-teal-600 hover:text-teal-700 hover:underline py-1 transition-colors">1. Aceptación de términos</a>
@@ -412,6 +430,7 @@ import Layout from "../layouts/MainLayout.astro";
           </section>
 
           <!-- 12. Información de contacto -->
+
           <section id="contacto" class="mb-8 scroll-mt-24">
             <h2 class="text-2xl font-bold text-teal-700 mb-4 flex items-center gap-3">
               <span class="bg-teal-100 text-teal-700 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">12</span>
@@ -420,28 +439,16 @@ import Layout from "../layouts/MainLayout.astro";
             <p class="text-gray-700 leading-relaxed mb-6">
               Para preguntas, reclamos o solicitudes relacionadas con estos términos y condiciones, puede contactarnos a través de:
             </p>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                <h3 class="font-semibold text-teal-800 mb-4">Información Legal</h3>
-                <div class="space-y-2 text-sm text-teal-700">
-                  <p><strong>Razón Social:</strong> Clínica Linda Sonrisa S.A.</p>
-                  <p><strong>RUT:</strong> 96.543.210-1</p>
-                  <p><strong>Representante Legal:</strong> Dr. Carlos Mendoza Silva</p>
-                  <p><strong>Dirección:</strong> Av. Providencia 1234, Providencia, Santiago</p>
-                </div>
-              </div>
-              
-              <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <h3 class="font-semibold text-blue-800 mb-4">Contacto Directo</h3>
-                <div class="space-y-2 text-sm text-blue-700">
-                  <p><strong>Teléfono:</strong> +56 2 2345 6789</p>
-                  <p><strong>Email Legal:</strong> legal@clinicalindasonrisa.cl</p>
-                  <p><strong>Email General:</strong> contacto@clinicalindasonrisa.cl</p>
-                  <p><strong>Horario:</strong> Lunes a Viernes, 8:00 - 18:00</p>
-                </div>
+            <div class="bg-teal-50 border border-teal-200 rounded-lg p-6">
+              <h3 class="font-semibold text-teal-800 mb-4">Contacto Clínica Linda Sonrisa</h3>
+              <div class="space-y-2 text-sm text-teal-700">
+                <p><strong>Dirección:</strong> Serrano 542, Galería Larosa, 2do piso, local 14, Melipilla</p>
+                <p><strong>Teléfono:</strong> +56 9 8648 3379</p>
+                <p><strong>Correo:</strong> dentallindasonrisa@gmail.com</p>
+                <p><strong>Horario:</strong> Lunes a Viernes: 9:30 a 18:30 | Sábado: 9:30 a 15:30</p>
+                <p class="text-green-700 text-sm mt-2">Si vienes desde la web, ¡menciónalo para una atención personalizada!</p>
               </div>
             </div>
-            
             <div class="mt-6 bg-green-50 border border-green-200 rounded-lg p-4">
               <h3 class="font-semibold text-green-800 mb-2">Ley aplicable y jurisdicción</h3>
               <p class="text-green-700 text-sm">
