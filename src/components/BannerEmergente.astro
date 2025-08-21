@@ -1,0 +1,198 @@
+<!-- ---
+interface Props {
+  imageSrc?: string;
+  imageAlt?: string;
+  title?: string;
+  message?: string;
+  ctaHref?: string;
+  ctaText?: string;
+
+  /** Milisegundos antes de abrir (ej: 2500 = 2.5s) */
+  delayMs?: number;
+
+  /** Rutas donde NO debe mostrarse. Coincide por startsWith */
+  hideOnPaths?: string[];
+
+  /** Clave base para almacenamiento (se concatena con version) */
+  storageKey?: string;
+
+  /**
+   * Política de frecuencia:
+   * - 'session' → 1 vez por sesión (sessionStorage)
+   * - 'day'     → 1 vez por X horas (localStorage + ttl)
+   * - 'always'  → siempre (sin almacenamiento)
+   */
+  showPolicy?: 'session' | 'day' | 'always';
+
+  /** TTL en horas cuando showPolicy = 'day' (por defecto 24h) */
+  ttlHours?: number;
+
+  /** Cambia la versión para “resetear” la visibilidad tras un deploy */
+  version?: string;
+
+  /** Permite cerrar al hacer clic fuera del cuadro */
+  closeOnOverlayClick?: boolean;
+}
+
+const {
+  imageSrc = '/images/clinica-og.jpg',
+  imageAlt = 'Clínica Linda Sonrisa',
+  title = '¿Quieres que te contactemos?',
+  message = 'Déjanos tus datos y te escribiremos a la brevedad.',
+  ctaHref = '/contacto',
+  ctaText = 'Ir al formulario',
+
+  delayMs = 2500,
+  hideOnPaths = ['/contacto'], // por defecto NO aparece en /contacto
+  storageKey = 'bannerEmergente',
+  showPolicy = 'session',
+  ttlHours = 24,
+  version = 'v1',
+  closeOnOverlayClick = true,
+} = Astro.props;
+
+const shouldHide = hideOnPaths.some((p) => Astro.url.pathname.startsWith(p));
+const storageKeyWithVersion = `${storageKey}:${version}`;
+---
+
+{!shouldHide && (
+  <div
+    id="banner-overlay"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 backdrop-blur-sm"
+    data-policy={showPolicy}
+    data-ttl-hours={ttlHours}
+    data-storage-key={storageKeyWithVersion}
+    data-delay={delayMs}
+    data-close-overlay={closeOnOverlayClick ? '1' : '0'}
+  >
+    <div
+      id="banner-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="banner-title"
+      aria-describedby="banner-desc"
+      class="bg-white border-2 border-teal-200 rounded-xl shadow-xl p-6 max-w-sm w-full relative animate-fade-in focus:outline-none outline-none"
+      tabindex="-1"
+    >
+      <button
+        type="button"
+        id="cerrar-banner-btn"
+        class="absolute top-2 right-3 text-gray-400 hover:text-gray-700 text-2xl font-bold"
+        aria-label="Cerrar"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <img
+        src={imageSrc}
+        alt={imageAlt}
+        class="w-24 h-24 rounded-full object-cover border-2 border-teal-300 mb-3 shadow mx-auto"
+      />
+
+      <h2 id="banner-title" class="text-xl font-bold text-teal-700 mb-2 text-center">
+        {title}
+      </h2>
+
+      <p id="banner-desc" class="text-gray-600 mb-5 text-center text-base">
+        {message}
+      </p>
+
+      <a
+        href={ctaHref}
+        class="bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300 shadow-md hover:shadow-lg mt-2 w-full text-center no-underline block"
+      >
+        {ctaText}
+      </a>
+    </div>
+  </div>
+)}
+
+<style is:global>
+@media (prefers-reduced-motion: no-preference){
+  @keyframes fade-in { from { opacity: 0; transform: scale(.98); } to { opacity: 1; transform: none; } }
+  .animate-fade-in { animation: fade-in .25s ease; }
+}
+</style>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  const overlay = document.getElementById('banner-overlay');
+  const dialog  = document.getElementById('banner-dialog');
+  const closeBtn = document.getElementById('cerrar-banner-btn');
+  if (!overlay || !dialog) return;
+
+  const policy = overlay.dataset.policy || 'session';
+  const ttlHours = Number(overlay.dataset.ttlHours || '24');
+  const key = overlay.dataset.storageKey || 'bannerEmergente';
+  const delay = Number(overlay.dataset.delay || '0');
+  const closeOnOverlay = overlay.dataset.closeOverlay === '1';
+
+  function markSeen(){
+    try {
+      if (policy === 'session') {
+        sessionStorage.setItem(key, '1');
+      } else if (policy === 'day') {
+        const exp = Date.now() + ttlHours * 3600 * 1000;
+        localStorage.setItem(key, JSON.stringify({ exp }));
+      }
+    } catch (_) {}
+  }
+
+  function alreadySeen(){
+    try {
+      if (policy === 'always') return false;
+      if (policy === 'session') {
+        return sessionStorage.getItem(key) === '1';
+      } else if (policy === 'day') {
+        const raw = localStorage.getItem(key);
+        if (!raw) return false;
+        const data = JSON.parse(raw);
+        return typeof data?.exp === 'number' && Date.now() < data.exp;
+      }
+    } catch (_) {}
+    return false;
+  }
+
+  function show(){
+    overlay.classList.remove('hidden'); overlay.classList.add('flex');
+    document.body.dataset.prevOverflow = document.body.style.overflow || '';
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => dialog.focus(), 0);
+    document.addEventListener('keydown', onKeyDown);
+  }
+
+  function hide(){
+    overlay.classList.add('hidden'); overlay.classList.remove('flex');
+    document.body.style.overflow = document.body.dataset.prevOverflow || '';
+    document.removeEventListener('keydown', onKeyDown);
+  }
+
+  function onKeyDown(e){
+    if (e.key === 'Escape') close();
+    // Focus trap
+    if (e.key === 'Tab') {
+      const focusable = dialog.querySelectorAll(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  }
+
+  function open(){ show(); }
+  function close(){ hide(); markSeen(); }
+
+  if (!alreadySeen()) {
+    setTimeout(open, Math.max(0, delay));
+  }
+
+  closeBtn?.addEventListener('click', close);
+  if (closeOnOverlay) {
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  }
+
+ 
+});
+</script> -->

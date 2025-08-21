@@ -1,0 +1,245 @@
+<!-- ---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Contáctanos - Clínica Linda Sonrisa">
+  <section id="contacto" class="bg-white py-16 px-4 sm:px-6 lg:px-8" aria-labelledby="contacto-title">
+    <div class="max-w-xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 id="contacto-title" class="text-3xl font-bold text-teal-700 mb-4 font-heading">Contáctanos</h2>
+        <p class="text-gray-600 mb-8">
+          ¿Tienes dudas o quieres agendar una cita? Déjanos tu mensaje y te responderemos a la brevedad.
+        </p>
+      </div>
+
+  <form class="space-y-6 animate-fade-in" role="form" aria-label="Formulario de contacto" novalidate id="form-contactanos" autocomplete="off">
+        <div class="relative">
+          <label for="nombre" class="block text-sm font-medium text-teal-700 mb-2">
+            <svg class="inline w-5 h-5 text-teal-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 15c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            Nombre completo <span class="text-red-500" aria-label="Campo obligatorio">*</span>
+          </label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+            aria-required="true"
+            aria-describedby="nombre-error"
+            class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors duration-200 px-4 py-3 focus:shadow-outline"
+            placeholder="Ingresa tu nombre completo"
+            autofocus
+          />
+          <div id="nombre-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
+        </div>
+
+        <div class="relative">
+          <label for="correo" class="block text-sm font-medium text-teal-700 mb-2">
+            <svg class="inline w-5 h-5 text-teal-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v1a2 2 0 01-2 2H10a2 2 0 01-2-2v-1" /></svg>
+            Correo electrónico <span class="text-red-500" aria-label="Campo obligatorio">*</span>
+          </label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            required
+            aria-required="true"
+            aria-describedby="correo-error"
+            class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors duration-200 px-4 py-3 focus:shadow-outline"
+            placeholder="tu@email.com"
+          />
+          <div id="correo-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
+        </div>
+
+        <div class="relative">
+          <label for="asunto" class="block text-sm font-medium text-teal-700 mb-2">
+            <svg class="inline w-5 h-5 text-teal-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 018 0v2m-4-4V7a4 4 0 10-8 0v6a4 4 0 008 0z" /></svg>
+            Asunto <span class="text-red-500" aria-label="Campo obligatorio">*</span>
+          </label>
+          <select
+            id="asunto"
+            name="asunto"
+            required
+            aria-required="true"
+            aria-describedby="asunto-error"
+            class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors duration-200 px-4 py-3 focus:shadow-outline"
+          >
+            <option value="">Selecciona un motivo</option>
+            <option value="cita">Agendar cita</option>
+            <option value="consulta">Consulta general</option>
+            <option value="emergencia">Emergencia dental</option>
+            <option value="cotizacion">Solicitar cotización</option>
+            <option value="otro">Otro</option>
+          </select>
+          <div id="asunto-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
+        </div>
+
+        <div class="relative">
+          <label for="mensaje" class="block text-sm font-medium text-teal-700 mb-2">
+            <svg class="inline w-5 h-5 text-teal-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 14h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8a9 9 0 1118 0z" /></svg>
+            Mensaje <span class="text-red-500" aria-label="Campo obligatorio">*</span>
+          </label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="4"
+            required
+            aria-required="true"
+            aria-describedby="mensaje-error mensaje-help"
+            class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors duration-200 px-4 py-3 focus:shadow-outline"
+            placeholder="Describe tu consulta o necesidad..."
+          ></textarea>
+          <div id="mensaje-help" class="text-gray-500 text-sm mt-1">Mínimo 10 caracteres</div>
+          <div id="mensaje-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
+        </div>
+
+        <div class="text-center">
+          <button
+            type="submit"
+            class="bg-gradient-to-r from-teal-500 to-green-400 text-white px-8 py-3 rounded-lg hover:from-teal-600 hover:to-green-500 focus:ring-4 focus:ring-teal-300 focus:outline-none transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            aria-describedby="submit-help"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span class="submit-text">Enviar mensaje</span>
+            <span class="loading-text hidden">Enviando...</span>
+          </button>
+          <div id="submit-help" class="text-gray-500 text-sm mt-2">Te responderemos en menos de 24 horas</div>
+        </div>
+      </form>
+      <!-- Success/Error messages -->
+      <div id="form-success" class="hidden mt-6 p-4 bg-gradient-to-r from-green-100 to-teal-100 border border-green-200 rounded-lg shadow animate-fade-in" role="alert">
+        <div class="flex items-center gap-2">
+          <svg class="w-7 h-7 text-green-500 mr-2 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <p class="text-green-800 font-semibold text-lg">¡Mensaje enviado correctamente! Te contactaremos pronto.</p>
+        </div>
+      </div>
+      <div id="form-error" class="hidden mt-6 p-4 bg-gradient-to-r from-red-100 to-pink-100 border border-red-200 rounded-lg shadow animate-fade-in" role="alert">
+        <div class="flex items-center gap-2">
+          <svg class="w-7 h-7 text-red-500 mr-2 animate-shake" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+          <p class="text-red-800 font-semibold text-lg">Error al enviar el mensaje. Por favor, intenta nuevamente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('form-contactanos');
+  const submitButton = form?.querySelector('button[type="submit"]');
+  const submitText = submitButton?.querySelector('.submit-text');
+  const loadingText = submitButton?.querySelector('.loading-text');
+
+  // Animación shake para error
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes fade-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .animate-fade-in { animation: fade-in 0.3s ease; }
+    @keyframes shake { 10%, 90% { transform: translateX(-1px); } 20%, 80% { transform: translateX(2px); } 30%, 50%, 70% { transform: translateX(-4px); } 40%, 60% { transform: translateX(4px); } }
+    .animate-shake { animation: shake 0.4s; }
+  `;
+  document.head.appendChild(style);
+
+  function validateField(field) {
+    const value = field.value?.trim() || '';
+    const fieldName = field.getAttribute('name') || '';
+    const errorElement = document.getElementById(fieldName + '-error');
+    let isValid = true;
+    let errorMessage = '';
+
+    if (errorElement) errorElement.classList.add('hidden');
+    field.classList.remove('border-red-500');
+
+    if (field.hasAttribute('required') && !value) {
+      errorMessage = 'Este campo es obligatorio';
+      isValid = false;
+    } else if (field.type === 'email' && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        errorMessage = 'Ingresa un email válido';
+        isValid = false;
+      }
+    } else if (fieldName === 'mensaje' && value.length < 10) {
+      errorMessage = 'El mensaje debe tener al menos 10 caracteres';
+      isValid = false;
+    }
+
+    if (!isValid && errorElement) {
+      errorElement.textContent = errorMessage;
+      errorElement.classList.remove('hidden');
+      field.classList.add('border-red-500');
+      field.classList.add('animate-shake');
+      setTimeout(() => field.classList.remove('animate-shake'), 400);
+    }
+    return isValid;
+  }
+
+  if (form) {
+    const fields = form.querySelectorAll('input, select, textarea');
+    fields.forEach(function(field) {
+      field.addEventListener('blur', function() {
+        validateField(field);
+      });
+      field.addEventListener('input', function() {
+        const fieldName = field.getAttribute('name') || '';
+        const errorElement = document.getElementById(fieldName + '-error');
+        const value = field.value?.trim() || '';
+        if (value && errorElement) {
+          errorElement.classList.add('hidden');
+          field.classList.remove('border-red-500');
+        }
+      });
+    });
+    // Focus automático en el primer campo
+    fields[0]?.focus();
+  }
+
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fields = form.querySelectorAll('input, select, textarea');
+      let allValid = true;
+      fields.forEach(function(field) {
+        if (!validateField(field)) {
+          allValid = false;
+        }
+      });
+      if (!allValid) {
+        const firstError = form.querySelector('.border-red-500');
+        if (firstError) {
+          try { firstError.focus(); } catch (e) {}
+        }
+        return;
+      }
+      if (submitButton && submitText && loadingText) {
+        submitButton.disabled = true;
+        submitText.classList.add('hidden');
+        loadingText.classList.remove('hidden');
+      }
+      setTimeout(function() {
+        const successElement = document.getElementById('form-success');
+        if (successElement) {
+          successElement.classList.remove('hidden');
+          const formFields = form.querySelectorAll('input, select, textarea');
+          formFields.forEach(function(field) {
+            if (field.type === 'checkbox' || field.type === 'radio') {
+              field.checked = false;
+            } else {
+              field.value = '';
+            }
+          });
+          successElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (submitButton && submitText && loadingText) {
+          submitButton.disabled = false;
+          submitText.classList.remove('hidden');
+          loadingText.classList.add('hidden');
+        }
+      }, 2000);
+    });
+  }
+});
+</script> -->
